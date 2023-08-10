@@ -41,20 +41,20 @@ st.markdown(
         padding: 2rem;
         text-align: center;
         background-color: #f7f7f7;
+        color: #333;  /* Set text color */
     }
     .title {
         font-size: 2.5rem;
         margin-bottom: 1rem;
-        color: #333;
     }
     .description {
         font-size: 1.2rem;
         margin-bottom: 2rem;
-        color: #666;
     }
     .image-container {
         display: flex;
         justify-content: center;
+        margin-bottom: 2rem;
     }
     .classify-button {
         background-color: #008CBA;
@@ -67,6 +67,11 @@ st.markdown(
     }
     .results {
         margin-top: 2rem;
+    }
+    .footer {
+        text-align: center;
+        margin-top: 2rem;
+        color: #666;  /* Set footer text color */
     }
     </style>
     """,
@@ -101,5 +106,4 @@ with st.container():
             st.markdown("</div>", unsafe_allow_html=True)
 
 # Footer
-
-st.markdown('<div style="text-align: center; margin-top: 2rem;">Created with ❤️ by Your Name</div>', unsafe_allow_html=True)
+st.markdown('<div class="footer">Created by Qudus Abolade</div>', unsafe_allow_html=True)
