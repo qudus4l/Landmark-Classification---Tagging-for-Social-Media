@@ -101,4 +101,5 @@ with st.container():
             st.markdown("</div>", unsafe_allow_html=True)
 
 # Footer
+
 st.markdown('<div style="text-align: center; margin-top: 2rem;">Created with ❤️ by Your Name</div>', unsafe_allow_html=True)
