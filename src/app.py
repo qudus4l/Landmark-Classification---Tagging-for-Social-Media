@@ -57,7 +57,7 @@ st.markdown(
         margin-bottom: 2rem;
     }
     .classify-button {
-        background-color: #008CBA;
+        background-color: #f7f7f7;
         color: white;
         font-size: 1rem;
         padding: 0.5rem 1rem;
