@@ -33,28 +33,72 @@ def classify_landmark(image):
 # Set page title and favicon
 st.set_page_config(page_title="Landmark Classification App", page_icon="🌍")
 
-# Title and description
-st.title("Landmark Classification App")
-st.markdown("Upload an image and let the app classify the landmark!")
+# Custom CSS styling
+st.markdown(
+    """
+    <style>
+    .main {
+        padding: 2rem;
+        text-align: center;
+        background-color: #f7f7f7;
+    }
+    .title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: #333;
+    }
+    .description {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        color: #666;
+    }
+    .image-container {
+        display: flex;
+        justify-content: center;
+    }
+    .classify-button {
+        background-color: #008CBA;
+        color: white;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 0.25rem;
+        cursor: pointer;
+    }
+    .results {
+        margin-top: 2rem;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
-# Upload image
-uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
+# Layout
+with st.container():
+    st.markdown('<div class="main">', unsafe_allow_html=True)
+    st.markdown('<div class="title">Landmark Classification App</div>', unsafe_allow_html=True)
+    st.markdown('<div class="description">Upload an image and let the app classify the landmark!</div>', unsafe_allow_html=True)
 
-if uploaded_file is not None:
-    image = Image.open(uploaded_file)
-    
-    # Display uploaded image
-    st.image(image, caption="Uploaded Image", use_column_width=True)
-    
-    if st.button("Classify"):
-        # Classify the image
-        results = classify_landmark(image)
-        
-        # Display classification results
-        st.subheader("Top 5 predicted classes:")
-        for i, (landmark_name, p) in enumerate(results):
-            st.write(f"{i+1}. **{landmark_name}** (Probability: {p:.2%})")
+    uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
 
-# Add a footer
-st.markdown("---")
-st.markdown("Created by Your Qudus Abolade")
+    if uploaded_file is not None:
+        image = Image.open(uploaded_file)
+
+        # Display uploaded image
+        st.markdown('<div class="image-container">', unsafe_allow_html=True)
+        st.image(image, caption="Uploaded Image", use_column_width=True)
+        st.markdown("</div>", unsafe_allow_html=True)
+
+        if st.button("Classify", key="classify-btn", help="Click to classify the image"):
+            # Classify the image
+            results = classify_landmark(image)
+
+            # Display classification results
+            st.markdown('<div class="results">', unsafe_allow_html=True)
+            st.subheader("Top 5 predicted classes:")
+            for i, (landmark_name, p) in enumerate(results):
+                st.write(f"{i+1}. **{landmark_name}** (Probability: {p:.2%})")
+            st.markdown("</div>", unsafe_allow_html=True)
+
+# Footer
+st.markdown('<div style="text-align: center; margin-top: 2rem;">Created with ❤️ by Your Name</div>', unsafe_allow_html=True)
