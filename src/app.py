@@ -1,6 +1,5 @@
 import streamlit as st
 from PIL import Image
-import io
 import numpy as np
 import torchvision.transforms as T
 import torch
@@ -31,18 +30,31 @@ def classify_landmark(image):
     
     return results
 
+# Set page title and favicon
+st.set_page_config(page_title="Landmark Classification App", page_icon="🌍")
+
+# Title and description
 st.title("Landmark Classification App")
+st.markdown("Upload an image and let the app classify the landmark!")
 
 # Upload image
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
+    
+    # Display uploaded image
     st.image(image, caption="Uploaded Image", use_column_width=True)
     
     if st.button("Classify"):
+        # Classify the image
         results = classify_landmark(image)
         
-        st.write("Top 5 predicted classes:")
+        # Display classification results
+        st.subheader("Top 5 predicted classes:")
         for i, (landmark_name, p) in enumerate(results):
-            st.write(f"{i+1}. {landmark_name} (prob: {p:.2f})")
+            st.write(f"{i+1}. **{landmark_name}** (Probability: {p:.2%})")
+
+# Add a footer
+st.markdown("---")
+st.markdown("Created by Your Qudus Abolade")
