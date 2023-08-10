@@ -41,7 +41,7 @@ st.markdown(
         padding: 2rem;
         text-align: center;
         background-color: #f7f7f7;
-        color: #333;  /* Set text color */
+        color: #333;
     }
     .title {
         font-size: 2.5rem;
@@ -57,7 +57,7 @@ st.markdown(
         margin-bottom: 2rem;
     }
     .classify-button {
-        background-color: #f7f7f7;
+        background-color: #00A6D6;  /* Adjust button color */
         color: white;
         font-size: 1rem;
         padding: 0.5rem 1rem;
@@ -71,7 +71,7 @@ st.markdown(
     .footer {
         text-align: center;
         margin-top: 2rem;
-        color: #666;  /* Set footer text color */
+        color: #666;
     }
     </style>
     """,
@@ -82,7 +82,7 @@ st.markdown(
 with st.container():
     st.markdown('<div class="main">', unsafe_allow_html=True)
     st.markdown('<div class="title">Landmark Classification App</div>', unsafe_allow_html=True)
-    st.markdown('<div class="description">Upload an image and let the app classify the landmark!</div>', unsafe_allow_html=True)
+    st.markdown('<div class="description">Upload an image and let the app tell you what landmark is in it!</div>', unsafe_allow_html=True)
 
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
 
@@ -106,4 +106,4 @@ with st.container():
             st.markdown("</div>", unsafe_allow_html=True)
 
 # Footer
-st.markdown('<div class="footer">Created by Qudus Abolade</div>', unsafe_allow_html=True)
+st.markdown('<div class="footer">Created by Qudus Abolade🦇</div>', unsafe_allow_html=True)
