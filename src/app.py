@@ -10,7 +10,7 @@ learn_inf = torch.jit.load("checkpoints/transfer_exported.pt")
 
 def classify_landmark(image):
     # Transform the image
-    img = Image.open(fn)
+    img = Image.open(image)
     img.load()
     timg = T.ToTensor()(img).unsqueeze_(0)
     
