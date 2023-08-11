@@ -4,17 +4,17 @@
 
 ## Project Overview
 
-Welcome to the "Landmark Classification & Tagging for Social Media" project! In this project, you will apply the skills you've acquired in the Convolutional Neural Network (CNN) course to build a landmark classifier.
+Welcome to my "Landmark Classification & Tagging for Social Media" project! In this project, I will build a landmark classifier.
 
 ## Project Steps
 
 The high-level steps of the project include:
 
-1. **Create a CNN to Classify Landmarks (from Scratch):** Visualize the dataset, process it for training, and build a CNN from scratch to classify landmarks. You'll describe data processing decisions and network architecture. Export your best network using Torch Script.
+1. **Create a CNN to Classify Landmarks (from Scratch):** Visualize the dataset, process it for training, and build a CNN from scratch to classify landmarks. I'll describe data processing decisions and network architecture. Export the best network using Torch Script.
 
-2. **Create a CNN to Classify Landmarks (using Transfer Learning):** Investigate pre-trained models, choose one, and train it for classification. Explain your pre-trained network choice and export your solution using Torch Script.
+2. **Create a CNN to Classify Landmarks (using Transfer Learning):** Investigate pre-trained models, choose one, and train it for classification. Explain my pre-trained network choice and export my solution using Torch Script.
 
-3. **Deploy Your Algorithm in an App:** Use your best model to create a user-friendly app for predicting likely landmarks in images. Test the model and reflect on its strengths and weaknesses.
+3. **Deploy Your Algorithm in an App:** Use the best model to create a user-friendly app for predicting likely landmarks in images. Test the model and reflect on its strengths and weaknesses.
 
 Each step is detailed in the following notebooks included in the project starter kit:
 
