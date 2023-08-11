@@ -1,95 +1,82 @@
+# Landmark Classification & Tagging for Social Media
+
+![Landmark Examples](static_images/sample_landmark_output.png) <!-- Replace with an appropriate image showcasing your project -->
+
 ## Project Overview
 
-Welcome to the Convolutional Neural Networks (CNN) project!
-In this project, you will learn how to build a pipeline to process real-world, user-supplied images and to put your model into an app.
-Given an image, your app will predict the most likely locations where the image was taken.
+Welcome to the "Landmark Classification & Tagging for Social Media" project! In this project, you will apply the skills you've acquired in the Convolutional Neural Network (CNN) course to build a landmark classifier.
 
-By completing this lab, you demonstrate your understanding of the challenges involved in piecing together a series of models designed to perform various tasks in a data processing pipeline. 
+## Project Steps
 
-Each model has its strengths and weaknesses, and engineering a real-world application often involves solving many problems without a perfect answer.
+The high-level steps of the project include:
 
-### Why We're Here
+1. **Create a CNN to Classify Landmarks (from Scratch):** Visualize the dataset, process it for training, and build a CNN from scratch to classify landmarks. You'll describe data processing decisions and network architecture. Export your best network using Torch Script.
 
-Photo sharing and photo storage services like to have location data for each photo that is uploaded. With the location data, these services can build advanced features, such as automatic suggestion of relevant tags or automatic photo organization, which help provide a compelling user experience. Although a photo's location can often be obtained by looking at the photo's metadata, many photos uploaded to these services will not have location metadata available. This can happen when, for example, the camera capturing the picture does not have GPS or if a photo's metadata is scrubbed due to privacy concerns.
+2. **Create a CNN to Classify Landmarks (using Transfer Learning):** Investigate pre-trained models, choose one, and train it for classification. Explain your pre-trained network choice and export your solution using Torch Script.
 
-If no location metadata for an image is available, one way to infer the location is to detect and classify a discernable landmark in the image. Given the large number of landmarks across the world and the immense volume of images that are uploaded to photo sharing services, using human judgement to classify these landmarks would not be feasible.
+3. **Deploy Your Algorithm in an App:** Use your best model to create a user-friendly app for predicting likely landmarks in images. Test the model and reflect on its strengths and weaknesses.
 
-In this project, you will take the first steps towards addressing this problem by building a CNN-powered app to automatically predict the location of the image based on any landmarks depicted in the image. At the end of this project, your app will accept any user-supplied image as input and suggest the top k most relevant landmarks from 50 possible landmarks from across the world.
+Each step is detailed in the following notebooks included in the project starter kit:
 
+- [cnn_from_scratch.ipynb](cnn_from_scratch.ipynb): Create a CNN from scratch.
+- [transfer_learning.ipynb](transfer_learning.ipynb): Use transfer learning.
+- [app.ipynb](app.ipynb): Deploy your best model in an app. Generate the archive file for submission.
 
-## Project Instructions
+## Project Purpose
 
-### Getting started
+Photo sharing and storage services benefit from location data attached to uploaded photos. However, many photos lack location metadata, making it challenging to enhance user experiences. This project addresses the issue by automatically predicting image locations through landmark classification.
 
-You have two choices for completing this project. You can work locally on your machine (NVIDIA GPU highly recommended), or you can work in the provided Udacity workspace that you can find in your classroom.
+If no location metadata is available, inferring the location from a discernible landmark becomes a solution. Given the volume of images uploaded to such services, manual landmark classification is infeasible. This project takes the first steps towards solving this problem by building models to predict image locations based on depicted landmarks.
 
-#### Setting up in the Udacity Project Workspace
-You can find the Udacity Project Workspace in your Udacity classroom, in the Project section.
+## Installation and Usage
 
-1. Start the workspace by clicking on `Project Workspace` in the left menu in the page
-2. When prompted on whether you want a GPU or not, please ANSWER YES (the GPU is going to make everything several times faster)
+1. Clone the repository:
 
-The environment is already setup for you, including the starter code, so you can jump right into building the project!
+   ```bash
+   git clone https://github.com/qudus4l/Landmark-Classification---Tagging-for-Social-Media.git
+   cd Landmark-Classification---Tagging-for-Social-Media
 
-#### Setting up locally
+2. Set up a virtual environment and install dependencies:
+```
+conda create -n landmark-env python=3.9
+conda activate landmark-env
+pip install -r requirements.txt
+```
 
-This setup requires a bit of familiarity with creating a working deep learning environment. While things should work out of the box, in case of problems you might have to do operations on your system (like installing new NVIDIA drivers) that are not covered in the class. Please do this if you are at least a bit familiar with these subjects, otherwise please consider using the provided Udacity workspace that you find in the classroom.
+3. Run the Streamlit app:
+```streamlit run app.py
+```
+OR [this link](https://qudus4landmark.streamlit.app)
 
-1. Open a terminal and clone the repository, then navigate to the downloaded folder:
-	
-	```	
-		git clone https://github.com/udacity/cd1821-CNN-project-starter.git
-		cd cd1821-CNN-project-starter
-	```
-    
-2. Create a new conda environment with python 3.7.6:
+## Dataset and Models
 
-    ```
-        conda create --name udacity_cnn_project -y python=3.7.6
-        conda activate udacity_cnn_project
-    ```
-    
-    NOTE: you will have to execute `conda activate udacity_cnn_project` for every new terminal session.
-    
-3. Install the requirements of the project:
-
-    ```
-        pip install -r requirements.txt
-    ```
-
-4. Install and open Jupyter lab:
-	
-	```
-        pip install jupyterlab
-		jupyter lab
-	```
-
-### Developing your project
-
-Now that you have a working environment, execute the following steps:
-
->**Note:** Complete the following notebooks in order, do not move to the next step if you didn't complete the previous one.
-
-1. Open the `cnn_from_scratch.ipynb` notebook and follow the instructions there
-2. Open `transfer_learning.ipynb` and follow the instructions
-3. Open `app.ipynb` and follow the instructions there
-
-## Evaluation
-
-Your project will be reviewed by a Udacity reviewer against the CNN project rubric.  Review this rubric thoroughly and self-evaluate your project before submission.  All criteria found in the rubric must meet specifications for you to pass.
-
-## Project Submission
-
-Your submission should consist of the github link to your repository.  Your repository should contain:
-- The `landmark.ipynb` file with fully functional code, all code cells executed and displaying output, and all questions answered.
-- An HTML or PDF export of the project notebook with the name `report.html` or `report.pdf`.
-
-Please do __NOT__ include any of the project data sets provided in the `landmark_images/` folder.
-
-### Ready to submit your project?
-
-Click on the "Submit Project" button in the classroom and follow the instructions to submit!
-
-## Dataset Info
+### Dataset
 
 The landmark images are a subset of the Google Landmarks Dataset v2.
+
+### Models and Accuracy
+
+Two different approaches were explored to classify landmarks:
+
+#### CNN from Scratch
+
+I designed a custom Convolutional Neural Network (CNN) architecture and trained from scratch to classify landmarks. This model was tailored to the specific requirements of the project and underwent rigorous training. It achieved 53% Accuracy.
+
+- **Model Architecture:** I decided to use 5 convolutional layers so the model could be sufficiently expressive. I used dropout layers to reduce my model's tendency to overfit the training data. I made my model output a 50-dimensional vector to match with the 50 available landmark classes.
+- **Data Preprocessing:**  My code first resizes the image to 256 and then crops to 224. I picked 224 as the input size because it is the recommended input size for using pytorch's pre-trained models. I did decide to augment the dataset via RandAugment, a typical set of augmentations for natural images. I added this augmentation with the goal of improving my model's robustness, thus improving test accuracy.
+- **Training and Validation:** I trained for 50 epochs with an adam optimizer and a learning rate scheduler. I saved the weights with the lowest loss
+- **Accuracy:** 53%
+
+#### Transfer Learning
+
+Transfer learning involves leveraging pre-trained CNN models and fine-tuning them for the landmark classification task. This approach capitalizes on the knowledge learned from a large dataset and adapts it to the specific task at hand.
+
+- **Pre-trained Model Selection:** I decided to use ResNet50 as the base model. I chose this model because it is a very deep model and it has been trained on a large dataset. I also chose this model because it is a very popular model and I wanted to see how it would perform on this dataset.
+- **Training and Validation:** Same process as the CNN from scratch.
+- **Accuracy:** 74%
+
+### Performance Evaluation
+
+Both models were rigorously evaluated and compared to determine their effectiveness in classifying landmarks accurately. The final selected model was chosen based on its performance and ability to generalize to new and unseen images. The chosen model was the transfer learning model.
+
+
